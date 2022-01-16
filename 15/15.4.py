@@ -44,23 +44,23 @@
 # 4 ==========================================================================
 
 # 5 ==========================================================================
-films = ['Крепкий орешек', 'Назад в будущее', 'Таксист', 'Леон', 'Богемская рапсодия', 'Город грехов', 'Мементо', 'Отступники', 'Деревня']
-favorites = []
-flag = False
-
-while True:
-    user_film = input('Введите фильм: ')
-    for film in films:
-        if user_film == film:
-            favorites.append(film)
-            flag = True
-
-    if flag == True:
-        print('Список любимых фильмов: ')
-        print(favorites)
-    else:
-        print('Ошибка! Такого фильма нет!')
-    flag = False
+# films = ['Крепкий орешек', 'Назад в будущее', 'Таксист', 'Леон', 'Богемская рапсодия', 'Город грехов', 'Мементо', 'Отступники', 'Деревня']
+# favorites = []
+# flag = False
+#
+# while True:
+#     user_film = input('Введите фильм: ')
+#     for film in films:
+#         if user_film == film:
+#             favorites.append(film)
+#             flag = True
+#
+#     if flag == True:
+#         print('Список любимых фильмов: ')
+#         print(favorites)
+#     else:
+#         print('Ошибка! Такого фильма нет!')
+#     flag = False
 # 6 ==========================================================================
 # word = input('Введите слово: ')
 # word_list = list(word)
@@ -146,7 +146,18 @@ while True:
 # else:
 #     print('Слово НЕ является палиндромом')
 # 10 ==========================================================================
+def selection_sort(my_list):
+    for i_mn in range(len(my_list)):
+        for curr in range(i_mn, len(my_list)):
+            if my_list[curr] < my_list[i_mn]:
+                my_list[curr], my_list[i_mn] = my_list[i_mn], my_list[curr]
 
+
+nums = [4, 9, 7, 6, 3, 2]
+
+selection_sort(nums)
+
+print(nums)
 # 11 ==========================================================================
 
 # 12 ==========================================================================
