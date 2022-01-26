@@ -1,22 +1,91 @@
 # Task 1
 
-
+# members = []
+#
+# N = int(input('Кол-во участников: '))
+# for i_num in range(1, N + 1):
+#     members.append(i_num)
+#
+# print(members)
 
 # Task 2
 
-
+# N = int(input('Кол-во участников: '))
+#
+# members = list(range(1, N + 1))
+#
+# print(members)
 
 # Task 3
 
+# N = int(input('Кол-во участников: '))
+# members = []
+# num = 1
+#
+# for _ in range(N // 3):
+#     members.append(list(range(num, num + 3)))
+#     num += 3
+#
+# print(members)
 
+# Task 4
+
+# words_list = [['', 0], ['', 0], ['', 0]]
+#
+# for i_num in range(3):
+#     print('Введите', i_num + 1, 'слово:', end=' ')
+#     word = input()
+#     words_list[i_num][0] = word
+#
+# text = input('Слово из текста: ')
+# while text != 'end':
+#     for index in range(3):
+#         if words_list[index][0] == text:
+#             words_list[index][1] += 1
+#     text = input('Слово из текста: ')
+#
+# print('\nПодсчет слов в тексте')
+# for index in range(3):
+#     print(words_list[index][0], ':', words_list[index][1])
 
 # Home Work
 # 1 ==========================================================================
-
+# matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+#
+# for i in range(len(matrix)):
+#     for j in range(len(matrix[i])):
+#         print(matrix[i][j], end=' ')
+#     print()
 # 2 ==========================================================================
-
+# N = int(input('Кол-во участников: '))
+# K = int(input('Кол-во человек в команде: '))
+# team_list = []
+# i_team = 1
+#
+# if N % K == 0:
+#     for _ in range(N // K):
+#         team_list.append(list(range(i_team, N // K + i_team + 1)))
+#         i_team += K
+#     print('Общий список команд: ', team_list)
+# else:
+#     print(N, 'участников невозможно поделить на команды по', K, 'человек!')
 # 3 ==========================================================================
+goods = [["яблоки", 50], ["апельсины", 190], ["груши", 100], ["нектарины", 200], ["бананы", 77]]
 
+print('Текущий ассортимент: ', goods)
+
+fruit_name = input('Новый фрукт: ')
+price = int(input('Цена: '))
+
+new_product = [fruit_name, price]
+goods.append(new_product)
+
+print('Новый ассортимент: ', goods)
+
+for i_prod in range(len(goods)):
+    goods[i_prod][1] = goods[i_prod][1] + goods[i_prod][1] * 0.08
+
+print('Новый ассортимент с увел. ценой: ', goods)
 # 4 ==========================================================================
 
 # 5 ==========================================================================
