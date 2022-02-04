@@ -1,22 +1,61 @@
 # Task 1
 
-
+# squares = []
+# for x in range(10):
+#     if x % 2 != 0:
+#         squares.append(x ** 2)
+#
+# print(squares)
 
 # Task 2
 
-
+# squares_odds = [x ** 2 for x in range(10) if x % 2 != 0]
+# print(squares_odds)
 
 # Task 3
 
+# squares_odds = [x ** 2 for x in range(10) if x % 2 != 0]
+# squares_cubes = [(x ** 2 if x % 2 != 0 else x ** 3) for x in range(10)]
+#
+# print(squares_odds)
+# print(squares_cubes)
 
+# Task 4
+
+# import random
+#
+# squad_1 = [random.randint(50, 80) for _ in range(10)]
+# squad_2 = [random.randint(30, 60) for _ in range(10)]
+# squad_3_condition = [('Погиб' if squad_1[i_damage] + squad_2[i_damage] > 100 else 'Выжил')
+#            for i_damage in range(10)]
+#
+# print('Урон первого отряда: ', squad_1)
+# print('Урон второго отряда: ', squad_2)
+# print('Состояние третьего отряда: \n', squad_3_condition)
 
 # Home Work
 # 1 ==========================================================================
-
+# A = int(input('Введите число А: '))
+# B = int(input('Введите число B: '))
+#
+# even_nums_list = [x for x in range(A, B + 1) if x % 2 == 0]
+#
+# print(even_nums_list)
 # 2 ==========================================================================
-
+# original_prices = [1.25, -9.45, 10.22, 3.78, -5.92, 1.16]
+# original_prices = [(x if x > 0 else 0) for x in original_prices]
+# print(original_prices)
 # 3 ==========================================================================
-
+# import random
+#
+# squad_1 = [random.randint(50, 80) for _ in range(10)]
+# squad_2 = [random.randint(30, 60) for _ in range(10)]
+# squad_3 = [('Погиб' if squad_1[i] + squad_2[i] > 100 else 'Выжил')
+#            for i in range(10)]
+#
+# print('Урон первого отряда: ', squad_1)
+# print('Урон второго отряда: ', squad_2)
+# print('Состояние третьего отряда: \n', squad_3)
 # 4 ==========================================================================
 
 # 5 ==========================================================================
