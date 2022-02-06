@@ -57,38 +57,62 @@
 # total_list = [[x for x in range(1, 13, 4)], [x for x in range(2, 13, 4)],
 #               [x for x in range(3, 13, 4)], [x for x in range(4, 13, 4)]]
 #
+# # total_list = []
 # # for i_start in range(1, 5):
-# #     list_1 = [x for x in range(i_start, 13, 4)]
-# #     total_list.append(list_1)
+# #     total_list.append([x for x in range(i_start, 13, 4)])
 #
 # print(total_list)
 # 8 ==========================================================================
-import random
-
-N = int(input('Кол-во палок: '))
-K = int(input('Кол-во бросков: '))
-
-stick_status = [1 for _ in range(N)]
-
-print('Положение палок до броска:', stick_status)
-
-for i_shot in range(K):
-    R_i = random.randint(1, N)
-    L_i = random.randint(1, R_i)
-    print('\nБросок', i_shot + 1, '. Сбиты палки с номера', L_i, 'по номер', R_i)
-    stick_status[L_i - 1:R_i] = [0 for _ in range(len(stick_status[L_i - 1:R_i]))]
-    print('Текущее положение палок:  ', stick_status)
-
-print('\nРезультат:')
-for i_stick in stick_status:
-    if i_stick == 1:
-        print('I', end='')
-    else:
-        print('.', end='')
+# import random
+#
+# N = int(input('Кол-во палок: '))
+# K = int(input('Кол-во бросков: '))
+#
+# stick_status = [1 for _ in range(N)]
+#
+# print('Положение палок до броска:', stick_status)
+#
+# for i_shot in range(K):
+#     R_i = random.randint(1, N)
+#     L_i = random.randint(1, R_i)
+#     print('\nБросок', i_shot + 1, '. Сбиты палки с номера', L_i, 'по номер', R_i)
+#     stick_status[L_i - 1:R_i] = [0 for _ in range(len(stick_status[L_i - 1:R_i]))]
+#     print('Текущее положение палок:  ', stick_status)
+#
+# print('\nРезультат:')
+# for i_stick in stick_status:
+#     if i_stick == 1:
+#         print('I', end='')
+#     else:
+#         print('.', end='')
 # 9 ==========================================================================
+# nice_list = [1, 2, 3, 4, 5, 6]
+# output = [digit for digit in nice_list]
+# print(output)
 
+# nice_list = [[1, 2], [3, 4], [5, 6]]
+# output = [digit for each_list in nice_list for digit in each_list]
+# print(output)
+
+# nice_list = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15], [16, 17, 18]]]
+# output = [digit for each_list_1 in nice_list for each_list_2 in each_list_1 for digit in each_list_2]
+# print(output)
 # 10 ==========================================================================
+def caesar_cipher(string, user_shift):
+    char_list = [(alphabet[(alphabet.index(sym) + user_shift) % 33] if sym != ' ' else ' ') for sym in string]
+    new_str = ''
+    for i_char in char_list:
+        new_str += i_char
+    return new_str
 
+
+alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+input_str = input('Введите строку: ')
+shift = int(input('Введите сдвиг: '))
+
+output_str = caesar_cipher(input_str, shift)
+
+print('Зашифрованная строка:', output_str)
 # 11 ==========================================================================
 
 # 12 ==========================================================================
