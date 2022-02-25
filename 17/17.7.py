@@ -99,6 +99,7 @@
 # print(output)
 # 10 ==========================================================================
 def caesar_cipher(string, user_shift):
+    print(alphabet)
     char_list = [(alphabet[(alphabet.index(sym) + user_shift) % 33] if sym != ' ' else ' ') for sym in string]
     new_str = ''
     for i_char in char_list:

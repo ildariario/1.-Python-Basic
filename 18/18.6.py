@@ -1,13 +1,21 @@
 # Task 1
 
-
+# details_num = 500000000
+# price = 23.8589578
+# increase = 0.045678
+#
+# print('На складе {} деталей'.format(details_num))
+# print('На складе {:d} деталей'.format(details_num))
+# print('На складе {:,d} деталей'.format(details_num))
+# print('На складе {:.0e} деталей'.format(details_num))
+# print('Каждая деталь стоит {:.2f} рублей'.format(price))
+# print('Цена увеличилась на {:%}'.format(increase))
+# print('Цена увеличилась на {:.1%}'.format(increase))
 
 # Task 2
 
 
-
 # Task 3
-
 
 
 # Home Work
@@ -24,13 +32,47 @@
 # 6 ==========================================================================
 
 # 7 ==========================================================================
-
+# string = input('Введите строку: ')
+# result = ''.join([sym for sym in string if sym.isdigit()])
+# print(result)
 # 8 ==========================================================================
-
+# string = input('Введите строку: ')
+# # string = 'aaAAbbсaaaA'
+# string = list(string)
+# result = []
+#
+# for index in range(0, len(string)):
+#     A = string[index]
+#     result.append(string[index])
+#     if index != len(string)-1 and string[index] != string[index + 1]:
+#         result.append('.')
+# result = ''.join(result).split('.')
+# for i_index in range(0, len(result)):
+#     result[i_index] = result[i_index][0] + str(result[i_index].count(result[i_index][0]))
+#
+# print('Закодированная строка: ', ''.join(result))
 # 9 ==========================================================================
-
+# IP_adress = input('Введите IP: ')
+# status = True
+#
+# if IP_adress.count('.') < 3:
+#     print('Адрес - это четыре числа, разделенные точками.')
+# else:
+#     parts_IP = IP_adress.split('.')
+#     for i_part in parts_IP:
+#         if not i_part.isdigit():
+#             print(f'{i_part} - не целое число')
+#             status = False
+#             break
+#         elif int(i_part) > 255 or int(i_part) < 0:
+#             print(f'{i_part} - превышает 255 либо меньше 0')
+#             status = False
+#             break
+#     if status:
+#         print('IP-адрес корректен')
 # 10 ==========================================================================
-
+expression = input('Выражение: ')
+print(eval(expression))
 # 11 ==========================================================================
 
 # 12 ==========================================================================

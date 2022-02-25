@@ -1,22 +1,99 @@
 # Task 1
 
-
+# user_name = input('Введите пользователя: ')
+# file_name = input('Введите имя файла: ')
+#
+# path = 'C:/' + user_name + '/docs/folder/' + file_name + '.txt'
+# print('Путь к файлу:', path)
 
 # Task 2
 
-
+# user_name = input('Введите пользователя: ')
+# file_name = input('Введите имя файла: ')
+#
+# path = 'C:/{user}/docs/folder/{new_file}.txt'.format(
+#     user=user_name,
+#     new_file=file_name
+# )
+# print('Путь к файлу:', path)
 
 # Task 3
 
+# user_name = input('Введите пользователя: ')
+# file_name = input('Введите имя файла: ')
+#
+# path = 'C:/{0}/docs/folder/{1}.txt'.format(
+#     user_name,
+#     file_name
+# )
+# print('Путь к файлу:', path)
 
+# Task 4
+
+# user_name = input('Введите пользователя: ')
+# file_name = input('Введите имя файла: ')
+#
+# path = f'C:/{user_name}/docs/folder/{file_name}.txt'
+# print('Путь к файлу:', path)
+
+# Task 5
+
+# while True:
+#     grats_template = input('Введите шаблон поздравления, '
+#                            'в шаблоне нужно использовать конструкцию {name}: ')     # Шаблон поздравлений
+#     if '{name}' in grats_template:
+#         break
+#     print('Ошибка: отсутствует конструкция {name}')
+#
+# print('Введите список имен (заканчивается на end): ')
+# names_list = []
+# while True:
+#     name = input('Имя: ')
+#     if name != 'end':
+#         names_list.append(name)
+#     else:
+#         break
+#
+# for i_name in names_list:
+#     print(grats_template.format(name=i_name))
 
 # Home Work
 # 1 ==========================================================================
-
+# name = input('Имя: ')
+# order_number = input('Номер заказа: ')
+#
+# order_message = 'Здравствуйте, {name_1}! Ваш номер заказа: {order}. Приятного Вам дня!'.format(
+#     name_1=name,
+#     order=order_number
+# )
+# print(order_message)
 # 2 ==========================================================================
-
+# name = input('Введите имя: ')
+# debt = int(input('Введите долг: '))
+# message = '{name_1}! {name_1}, привет! Как дела, {name_1}? Где мои {debt_1} рублей? {name_1}!'.format(
+#     name_1=name,
+#     debt_1=debt
+# )
+# print(message)
 # 3 ==========================================================================
+while True:
+    part_IP_1 = int(input('Введите 1 часть IP адреса: '))
+    part_IP_2 = int(input('Введите 2 часть IP адреса: '))
+    part_IP_3 = int(input('Введите 3 часть IP адреса: '))
+    part_IP_4 = int(input('Введите 4 часть IP адреса: '))
+    if part_IP_1 <= 255 and part_IP_2 <= 255 and part_IP_3 <= 255 and part_IP_4 <= 255:
+        break
+    else:
+        print('\nОшибка: Каждая часть IP адреса должна находится в диапазоне от 0 до 255 (включительно)!')
+        print('Попробуйте еще раз.\n')
 
+ip_address = '{part_1}.{part_2}.{part_3}.{part_4}'.format(
+    part_1=part_IP_1,
+    part_2=part_IP_2,
+    part_3=part_IP_3,
+    part_4=part_IP_4,
+)
+print('\nIP адрес:', ip_address)
 # 4 ==========================================================================
 
 # 5 ==========================================================================
