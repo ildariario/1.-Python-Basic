@@ -83,26 +83,46 @@
 # for i_person in sorted(lvl_persons_in_tree):
 #     print(i_person, lvl_persons_in_tree[i_person])
 # Вариант 2 --------------------------------------------
-def height(man):
-    if man not in tree:
-        return 0
-    else:
-        return 1 + height(tree[man])
+# def height(man):
+#     if man not in tree:
+#         return 0
+#     else:
+#         return 1 + height(tree[man])
+#
+#
+# tree = {}
+# N = int(input('Введите количество человек: '))
+# # Наполнение словаря tree
+# for i_pair in range(N - 1):
+#     child, parent = input(f'{i_pair+1} пара: ').split()
+#     tree[child] = parent
+# # Наполнение словаря tree
+# heights = {}
+# for man in set(tree.keys()).union(set(tree.values())):
+#     heights[man] = height(man)
+#
+# for key, value in sorted(heights.items()):
+#     print(key, value)
+# 10 ==========================================================================
+def is_poly(string):
+    char_dict = {}
+    # Заполнение словаря char_dict в виде символ: количество таких символов в строке
+    for i_sym in string:
+        char_dict[i_sym] = char_dict.get(i_sym, 0) + 1
+    # Подсчет количества нечетных значений символов в строке/словаре
+    odd_count = 0   # odd - нечетный
+    for i_value in char_dict.values():
+        if i_value % 2 != 0:
+            odd_count += 1
+
+    return odd_count <= 1
 
 
-tree = {}
-N = int(input('Введите количество человек: '))
-# Наполнение словаря tree
-for i_pair in range(N - 1):
-    child, parent = input(f'{i_pair+1} пара: ').split()
-    tree[child] = parent
-# Наполнение словаря tree
-heights = {}
-for man in set(tree.keys()).union(set(tree.values())):
-    heights[man] = height(man)
-
-for key, value in sorted(heights.items()):
-    print(key, value)
+my_string = input('Введите строку: ')
+if is_poly(my_string):
+    print('Можно сделать палиндромом')
+else:
+    print('Нельзя сделать палиндромом')
 # 11 ==========================================================================
 
 # 12 ==========================================================================
