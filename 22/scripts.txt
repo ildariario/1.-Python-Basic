@@ -1,0 +1,651 @@
+1-й файл: 22.1.py
+# Task 1
+'''Задача №1 (Путь к файлу)
+Нужно сформировать относительный путь к файлу, для использования в других скриптах
+проекта. Сам путь из последовательности двух папок и имени файла нам известен
+(т.е. дано docs/{folder}/{file}). Одну из папок и имя файла вводит юзер. Нужно
+написать код, который выведет этот относительный путь на экран.
+'''
+
+# folder_name = 'project'
+# file_name = 'my_file.txt'
+#
+# path = 'docs/{folder}/{file}'.format(
+#     folder=folder_name,
+#     file=file_name,
+# )
+#
+# print(path)
+
+# Task 2
+
+# import os
+#
+# folder_name = 'project'
+# file_name = 'my_file.txt'
+#
+# rel_path = os.path.join('docs', folder_name, file_name)
+# print(rel_path)
+#
+# abs_path = os.path.abspath(file_name)
+# print(abs_path)
+
+# Task 3
+'''Работа за преподавателем'''
+# import os
+#
+# abs_path = os.path.abspath('new_folder')
+# print('1:', abs_path)
+#
+# abs_path = os.path.abspath('../new_folder')
+# print('2:', abs_path)
+#
+# abs_path = os.path.abspath(os.path.join('..', 'new_folder'))
+# print('3:', abs_path)
+#
+# abs_path = os.path.abspath('/new_folder')
+# print('4:', abs_path)
+#
+# abs_path = os.path.abspath(os.path.join(os.path.sep, 'new_folder'))
+# print('5:', abs_path)
+
+# Task 4
+'''Задача №2 (Проекты)
+Есть список из двух проектов «Git start» и «Hh», которые хранятся в папке 
+«1. Python Basic». Написать прогу, которая выведет на экран содержимое каждого 
+проекта, т.е. абсолютные пути до файлов и папок внутри них. 
+'''
+# import os
+#
+# def print_dirs(project):
+#     print('\nСодержимое директории', project)
+#     for i_elem in os.listdir(project):
+#         path = os.path.join(project, i_elem)
+#         print('    ', path)
+#
+# projects_list = ['1. Python Basic', 'Hh']
+# for i_project in projects_list:
+#     path_to_project = os.path.abspath(os.path.join('..', '..', i_project))
+#     print_dirs(path_to_project)
+
+# Home Work
+# 1 ==========================================================================
+'''Напишите программу, которая выводит на экран относительный и абсолютный пути 
+до файла admin.bat. 
+
+Пример результата:
+Абсолютный путь до файла: C:\Users\Roman\PycharmProjects\Skillbox\access\admin.bat
+Относительный путь до файла: Skillbox\access\admin.bat
+'''
+# import os
+#
+# file_name = 'admin.bat'
+# folder_name = 'access'
+#
+# abs_path = os.path.abspath(file_name)
+# print('Абсолютный путь до файла:', abs_path)
+# rel_path = os.path.join('Skillbox', folder_name, file_name)
+# print('Относительный путь до файла:', rel_path)
+# 2 ==========================================================================
+'''Выберите любую директорию на своём диске и затем напишите программу, выводящую 
+на экран абсолютные пути к файлам и папкам, которые находятся внутри этой директории. 
+
+Результат программы на примере директории проекта python_basic:
+Содержимое каталога G:\PycharmProjects\python_basic
+    G:\PycharmProjects\python_basic\.git
+    G:\PycharmProjects\python_basic\.idea
+    G:\PycharmProjects\python_basic\Module14
+    G:\PycharmProjects\python_basic\Module15
+    G:\PycharmProjects\python_basic\Module16
+    G:\PycharmProjects\python_basic\Module17
+    G:\PycharmProjects\python_basic\Module18
+    G:\PycharmProjects\python_basic\Module19
+    G:\PycharmProjects\python_basic\Module20
+    G:\PycharmProjects\python_basic\Module21
+    G:\PycharmProjects\python_basic\Module22
+'''
+# import os
+#
+# def print_dirs(path):
+#     print('Содержимое каталога:', path)
+#     for i_path in os.listdir(path):
+#         print('   ', os.path.join(path, i_path))
+#
+#
+# project_folder = 'Git start'
+#
+# abs_path = os.path.abspath(os.path.join('..', '..', project_folder))
+# print(abs_path)
+# print_dirs(abs_path)
+# 3 ==========================================================================
+'''Напишите программу, которая выводит на экран только корень диска, на котором 
+запущен скрипт. Учтите, что скрипт может быть запущен где угодно и при любой 
+вложенности папок.
+
+Результат программы на примере диска G:
+Корень диска: G:\\
+'''
+import os
+
+root_folder = os.path.abspath(os.path.sep)
+print('Корень диска:', root_folder)
+
+************************************************************************************************************************
+2-й файл: 22.2.py
+# Task 1
+'''Работа за преподавателем'''
+
+# import os
+#
+# def print_dirs(project):
+#     print('\nСодержимое директории', project)
+#     for i_elem in os.listdir(project):
+#         path = os.path.join(project, i_elem)
+#         print('    ', path)
+#
+# projects_list = ['Prod', '1. Python Basic', 'Hh']
+# for i_project in projects_list:
+#     path_to_project = os.path.abspath(os.path.join('..', '..', i_project))
+#     # print(path_to_project)
+#     print_dirs(path_to_project)
+
+# Task 2
+
+# import os
+#
+# def print_dirs(project):
+#     print('\nСодержимое директории', project)
+#     if os.path.exists(project):
+#         for i_elem in os.listdir(project):
+#             path = os.path.join(project, i_elem)
+#             print('    ', path)
+#     else:
+#         print('     Такого каталога проекта не существует.')
+#
+# projects_list = ['Prod', '1. Python Basic', 'Hh']
+# for i_project in projects_list:
+#     path_to_project = os.path.abspath(os.path.join('..', '..', i_project))
+#     print_dirs(path_to_project)
+
+# Task 3
+'''Задача №1 (Поиск)
+Нужно написать функцию, которая ищет нужный нам файл внутри директории, а затем
+выводит его абсолютный путь на экран.
+'''
+
+# import os
+#
+# def find_file(cur_path, file_name):
+#     print('Переходим в:', cur_path)
+#     print(f'    список содержимого папки {cur_path}:', os.listdir(cur_path))
+#     for i_elem in os.listdir(cur_path):
+#         path = os.path.join(cur_path, i_elem)
+#         print('    смотрим:', path)
+#         if i_elem == file_name:
+#             return path
+#         if os.path.isdir(path):
+#             print(f'    {i_elem} - это директория')
+#             result = find_file(path, file_name)
+#             if result:
+#                 break
+#     else:
+#         result = None
+#
+#     return result
+#
+#
+# print()
+# searched_file = 'hello.py'
+# file_path = find_file(os.path.abspath(os.path.join('..', '..', 'Hh')), searched_file)
+#
+# if file_path:
+#     print('\nФайл найден!\nАбсолютный путь к файлу:', file_path)
+#     print(f'Размер файла {os.path.getsize(file_path)} байт.')
+# else:
+#     print('\nФайл не найден.')
+
+# Home Work
+# 1 ==========================================================================
+'''Задача 1. Иконки
+Андрей для себя хочет сделать экспериментальный сайт, где будет красиво отображаться
+вся структура его диска: папки одними иконками, файлы — другими. Поэтому ему нужен код,
+который поможет определить, какой тип иконки вставить.
+Напишите программу, которая по заданному абсолютному пути определяет, на что указывает
+этот путь (на директорию, файл, или же путь является ссылкой), и выведите соответствующее
+сообщение. Если путь указывает на файл, то также выведите его размер (сколько он весит
+в байтах). Обеспечьте контроль ввода: проверка пути на существование.
+Подсказка: для вывода размера файла поищите соответствующий метод.
+
+Пример 1:
+Путь: C:\Users\Roman\PycharmProjects\Skillbox\Module17\lesson2.py
+Это файл
+Размер файла: 605 байт
+
+Пример 2:
+Путь: C:\Users\Roman\PycharmProjects\Skillbox\Module17\lesson2.py
+Указанного пути не существует
+'''
+
+# import os
+#
+# abs_path = input('Путь: ')
+# if os.path.exists(abs_path):
+#     if os.path.isdir(abs_path):
+#         print('Это директория')
+#     elif os.path.isfile(abs_path):
+#         print('Это файл')
+#         print('Размер файла:', os.path.getsize(abs_path), 'байт')
+#     else:
+#         print('Это ссылка')
+# else:
+#     print('Указанного пути не существует')
+# 2 ==========================================================================
+'''Задача 2. Поиск файла
+В уроке мы написали функцию, которая ищет нужный нам файл во всех подкаталогах 
+указанной директории. Однако, как мы понимаем, файлов с таким названием может быть 
+несколько.
+Напишите функцию, которая принимает на вход абсолютный путь до директории и имя 
+файла, рекурсивно проходит по всем вложенным файлам и папкам и выводит на экран 
+все абсолютные пути с этим именем.
+
+Пример:
+Ищем в: C:/Users/Roman/PycharmProjects/Skillbox
+Имя файла: lesson2
+'''
+
+import os
+
+def find_file(path, file_name, path_list=None):
+    if path_list == None:
+        path_list = []
+    for i_elem in os.listdir(path):
+        new_path = os.path.abspath(os.path.join(path, i_elem))
+        if i_elem == file_name:
+            path_list.append(os.path.abspath(os.path.join(path, i_elem)))
+        if os.path.isdir(new_path):
+            find_file(new_path, file_name, path_list)
+    return path_list
+
+
+searched_file = input('Какой файл ищем? ')
+abs_path = os.path.abspath(os.path.join('..', '..'))
+if find_file(abs_path, searched_file):
+    print('Найдены следующие пути:')
+    for i_path in find_file(abs_path, searched_file):
+        print('-'*60)
+        print(i_path, '\n   | Размер файла:', os.path.getsize(i_path), 'байт |')
+else:
+    print('Файл {} в директории {} не найден!'.format(searched_file, abs_path))
+print('-'*60)
+
+************************************************************************************************************************
+3-й файл: 22.3.py
+# Task 1
+'''Задача №1 (Участники конференции)
+Нам передан в виде текстового файла speakers.txt список выступающих на конференции людей.
+В каждой строке текстового файла содержатся фамилия, имя и возраст человека. Написать
+программу, которая выведет на экран содержимое файла.
+'''
+# speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+# data = speakers_file.read()
+# print(data)
+# speakers_file.close()
+
+# Task 2
+
+# speakers_file = open('speakers.txt', 'r',
+#                      encoding='utf-8')
+#
+# data = speakers_file.read()
+# another_data = speakers_file.read()
+# print('Данные:', data, sep='\n')
+# print('\nДругие данные:', another_data)
+# speakers_file.close()
+# # -------------------------------------------
+# speakers_file = open('speakers.txt', 'r',
+#                      encoding='utf-8')
+# data = speakers_file.read()
+#
+# speakers_file = open('speakers.txt', 'r',
+#                      encoding='utf-8')
+# another_data = speakers_file.read()
+#
+# print('Данные:', data, sep='\n')
+# print('\nДругие данные:', another_data, sep='\n')
+# speakers_file.close()
+
+# Task 3
+
+# speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+#
+# for i_line in speakers_file:
+#     print(i_line)
+# speakers_file.close()
+
+# Task 4
+
+# speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+#
+# for i_line in speakers_file:
+#     print(i_line, end='')
+# speakers_file.close()
+
+# Home Work
+# 1 ==========================================================================
+
+'''Обработать результаты тестирования двух групп людей. Файл первой группы (group_1.txt) 
+находится в папке task (D:\Works of Skillbox\1. Python Basic\folder for working with files\
+for lesson 22.3\task), файл второй группы (group_2.txt) — в папке Additional_info 
+(D:\Works of Skillbox\1. Python Basic\folder for working with files\for lesson 22.3\task\
+Additional_info).
+
+Содержимое файла group_1.txt
+Бобровский Игорь 10
+Дронов Александр 20
+Жуков Виктор 30
+
+Содержимое файла group_2.txt
+Павленко Геннадий 20
+Щербаков Владимир 35
+Marley Bob 15
+На экран нужно вывести сумму очков первой группы, затем разность очков опять же 
+первой группы и напоследок — произведение очков уже второй группы. '''
+# ------------------------------------------------------------------------------------
+# import os
+#
+# # Вариант 1
+# # rel_path = '../folder for working with files/for lesson 22.3/task/group_1.txt'
+# # Вариант 2
+# # abs_path = os.path.join('D', ':', os.path.sep, 'Works of Skillbox', '1. Python Basic',
+# #                         'folder for working with files', 'for lesson 22.3', 'task', 'group_1.txt')
+# # Вариант 3
+# # abs_path_1 = r'D:\Works of Skillbox\1. Python Basic\folder for working with files\for lesson 22.3\task\group_1.txt'
+# # Вариант 4
+# abs_path_1 = 'D:\\Works of Skillbox\\1. Python Basic\\' \
+#            'folder for working with files\\for lesson 22.3\\task\\group_1.txt'
+# abs_path_2 = 'D:\\Works of Skillbox\\1. Python Basic\\' \
+#            'folder for working with files\\for lesson 22.3\\task\\Additional_info\\group_2.txt'
+#
+# file = open(abs_path_1, 'r', encoding='utf-8')
+# summa = 0
+# for i_line in file:
+#     info = i_line.split()
+#     summa += int(info[2])
+# file.close()
+#
+# file = open(abs_path_1, 'r', encoding='utf-8')
+# first = file.readline().split()
+# diff = int(first[2])
+# for i_line in file:
+#     info = i_line.split()
+#     diff -= int(info[2])
+# file.close()
+#
+# file = open(abs_path_2, 'r', encoding='utf-8')
+# compose = 1
+# for i_line in file:
+#     info = i_line.split()
+#     compose *= int(info[2])
+# file.close()
+#
+# print(summa)
+# print(diff)
+# print(compose)
+# 2 ==========================================================================
+'''Задача 2. Поиск файла 2
+Как мы помним, скрипты — это просто куча строк текста, хоть они и понятны только 
+программисту. Таким образом, с ними можно работать точно так же, как и с обычными 
+текстовыми файлами.
+Используя функцию поиска файла из предыдущего урока, реализуйте программу, которая 
+находит внутри указанного пути все файлы с искомым названием и выводит на экран текст 
+одного из них (выбор можно сгенерировать случайно).
+Подсказка: можно использовать, например, список для сохранения найденного пути.
+'''
+# --------------------------------------------------------------------------------------
+import os
+import random
+
+def find_file(path, file_name, path_list=None):
+    if path_list == None:
+        path_list = []
+    for i_elem in os.listdir(path):
+        new_path = os.path.abspath(os.path.join(path, i_elem))
+        if i_elem == file_name:
+            path_list.append(os.path.abspath(os.path.join(path, i_elem)))
+        if os.path.isdir(new_path):
+            find_file(new_path, file_name, path_list)
+    return path_list
+
+
+abs_path = os.path.abspath(os.path.join('..', '..'))
+print('Поиcк ведется в каталоге:', abs_path)
+searched_file = input('Какой файл ищем? ')
+
+if find_file(abs_path, searched_file):
+    print('Найдены следующие пути:')
+    for i_index, i_path in enumerate(find_file(abs_path, searched_file)):
+        print('-'*60)
+        print(f'{i_index+1}-й файл:', i_path, '\n\t|\tРазмер файла:', os.path.getsize(i_path), 'байт\t|')
+    # Случайный выбор пути из списка путей возвращаемого из функции
+    chosen_path = random.randint(0, len(find_file(abs_path, searched_file))-1)
+    # chosen_path = random.choice(find_file(abs_path, searched_file))
+    print('-' * 60)
+    print('Содержимое {}-го файла (файл выбран случайно):'.format(chosen_path+1))
+    file = open(find_file(abs_path, searched_file)[chosen_path], 'r', encoding='utf-8')
+    code_of_file = file.read()
+    print(code_of_file)
+    file.close()
+else:
+    print('Файл {} в директории {} не найден!'.format(searched_file, abs_path))
+print('-'*60)
+
+************************************************************************************************************************
+4-й файл: 22.4.py
+# Task 1
+'''Задача №1 (Участники конференции 2)
+Нам передан в виде текстового файла speakers.txt список выступающих на конференции
+людей. В каждой строке текстового файла содержатся фамилия, имя и возраст человека.
+Чтобы понять, сколько места в базе данных (БД) будет занимать каждый участник, нужно
+посчитать из скольких символов состоит каждая строчка (т.е. каждый участник) и
+вывести ответы в отдельный файл.
+'''
+# speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+# sym_count = []
+# for i_line in speakers_file:
+#     print(i_line, end='')
+#     sym_count.append(str(len(i_line)))
+# print()
+# sym_count_str = '\n'.join(sym_count)
+# speakers_file.close()
+# print(sym_count_str)
+
+# Task 2
+
+# speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+# sym_count = []
+# for i_line in speakers_file:
+#     print(i_line, end='')
+#     sym_count.append(str(len(i_line)))
+# sym_count_str = '\n'.join(sym_count)
+# speakers_file.close()
+#
+# counts_file = open('sym_counts.txt', 'w')
+# counts_file.write(sym_count_str)
+# counts_file.write('\n'+str(50))
+# counts_file.close()
+
+# Task 3
+'''Задача №2 (История поиска)
+Нам нужно создать что-то вроде истории поиска. Написать программу, которая каждый 
+раз при запуске программы будет сохранять в текстовый файл абсолютный путь 
+искомого файла. 
+'''
+# import os
+#
+# def find_file(cur_path, file_name):
+#     print('Переходим в:', cur_path)
+#
+#     for i_elem in os.listdir(cur_path):
+#         path = os.path.join(cur_path, i_elem)
+#         print('\tсмотрим:', path)
+#
+#         if i_elem == file_name:
+#             return path
+#         if os.path.isdir(path):
+#             print(f'\t{i_elem} - это директория')
+#             result = find_file(path, file_name)
+#             if result:
+#                 break
+#     else:
+#         result = None
+#
+#     return result
+#
+#
+# # searched_file = 'hello.py'
+# searched_file = 'checkUp_1.py'
+# file_path = find_file(os.path.abspath(os.path.join('..', '..', 'Hh')), searched_file)
+# history_file = open('search_history.txt', 'a', encoding='utf-8')
+# if file_path:
+#     print('\nФайл найден!\nАбсолютный путь к файлу:', file_path)
+#     history_file.write(file_path+'\n')
+# else:
+#     print('\nФайл не найден.')
+# history_file.close()
+
+# Home Work
+# 1 ==========================================================================
+'''Описание
+Задача 1. Сумма чисел
+Во входном файле numbers.txt записано N целых чисел, каждое в отдельной строке. 
+Напишите программу, которая выводит их сумму в выходной файл answer.txt.
+Пример:
+Содержимое файла numbers.txt:
+1
+2
+3
+4
+10
+Содержимое файла answer.txt
+20
+'''
+# input_file = open('numbers.txt', 'r')
+# output_file = open('answer.txt', 'w')
+#
+# summ = 0
+# for i_string in input_file:
+#     summ += int(i_string)
+# output_file.write(str(summ))
+#
+# input_file.close()
+# output_file.close()
+# 2 ==========================================================================
+'''Напишите программу, которая копирует код каждого скрипта в папке 22 проекта 
+python_basic в файл scripts.txt, разделяя код строкой из 40 символов *.
+'''
+import os
+
+out_file = open('scripts.txt', 'w', encoding='utf-8')
+
+for i_ind, i_path in enumerate(os.listdir()):
+    if not i_path.endswith('txt'):
+        print('Файл:', i_path)
+        inp_file = open(i_path, 'r', encoding='utf-8')
+        content_file = inp_file.read()
+        out_file.write('\n'.join([''.join([str(i_ind+1), '-й файл: ', i_path]), content_file, '*' * 120, '']))
+        # out_file.write(''.join([i_path, ':\n', content_file, '\n', '*'*120, '\n', '*'*120, '\n']))
+        inp_file.close()
+out_file.close()
+
+************************************************************************************************************************
+5-й файл: 22.5.py
+# Task 1
+
+speakers_file = open('speakers.txt', 'r', encoding='utf-8')
+data = speakers_file.read(10)
+print(data)
+speakers_file.close()
+
+# Task 2
+
+
+
+# Task 3
+
+
+
+# Home Work
+# 1 ==========================================================================
+
+# 2 ==========================================================================
+
+# 3 ==========================================================================
+
+# 4 ==========================================================================
+
+# 5 ==========================================================================
+
+# 6 ==========================================================================
+
+# 7 ==========================================================================
+
+# 8 ==========================================================================
+
+# 9 ==========================================================================
+
+# 10 ==========================================================================
+
+# 11 ==========================================================================
+
+# 12 ==========================================================================
+
+# 13 ==========================================================================
+
+# 14 ==========================================================================
+
+# 15 ==========================================================================
+************************************************************************************************************************
+6-й файл: 22.6.py
+# Task 1
+
+
+
+# Task 2
+
+
+
+# Task 3
+
+
+
+# Home Work
+# 1 ==========================================================================
+
+# 2 ==========================================================================
+
+# 3 ==========================================================================
+
+# 4 ==========================================================================
+
+# 5 ==========================================================================
+
+# 6 ==========================================================================
+
+# 7 ==========================================================================
+
+# 8 ==========================================================================
+
+# 9 ==========================================================================
+
+# 10 ==========================================================================
+
+# 11 ==========================================================================
+
+# 12 ==========================================================================
+
+# 13 ==========================================================================
+
+# 14 ==========================================================================
+
+# 15 ==========================================================================
+************************************************************************************************************************
