@@ -57,10 +57,10 @@
 #     print('Такого файла нет в каталоге!')
 #
 # # Вар 2 =============
-# # file_name = 'For example_2.txt'
-# # abs_path_file = r'D:\Works of Skillbox\1. Python Basic\22\for test_1\Прочти перед изучением!.docx'
-# # abs_path_file = os.path.abspath(os.path.join('for test_1', file_name))
-# # os.remove(abs_path_file)
+# file_name = 'For example_2.txt'
+# abs_path_file = r'D:\Works of Skillbox\1. Python Basic\22\for test_1\Прочти перед изучением!.docx'
+# abs_path_file = os.path.abspath(os.path.join('for test_1', file_name))
+# os.remove(abs_path_file)
 # 4 ==========================================================================
 '''2(a). Модуль os. Переименование файлов'''
 # import os
@@ -754,8 +754,8 @@
 # with zipfile.ZipFile('files.zip') as zf:
 #     byte_text = zf.read('1.txt')
 #     text = zf.read('2.txt')
-#     print(byte_text.decode('utf-8'))
 #     print(byte_text)
+#     print(byte_text.decode('utf-8'))
 #     print(text)
 #     print(text.decode('utf-8'))
 # ==========================================================================
