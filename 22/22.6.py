@@ -412,13 +412,14 @@ u 0.083
 y 0.083
 '''
 # Вариант 1 ---------------------------------------------------------------------------------
+# import string
+#
 # file_input = open('text2.txt', 'r')
 # file_output = open('analysis.txt', 'w')
-# alphabet = 'abcdefghijklmnopqrstuvwxyz'
 #
 # text = file_input.read()
 #
-# all_letters = [i_sym.lower() for i_sym in text if i_sym.lower() in alphabet]   # Список всех букв в тексте
+# all_letters = [i_sym.lower() for i_sym in text if i_sym.lower() in string.ascii_lowercase]   # Список всех букв в тексте
 # print(all_letters, '- cписок всех букв в тексте')
 #
 # sorted_unique_letters = sorted(set(all_letters))    # Сортируем уникальные буквы текста в алфавитном порядке
@@ -441,17 +442,17 @@ y 0.083
 # file_input.close()
 # file_output.close()
 # Вариант 2 ---------------------------------------------------------------------------------
+# import string
 # def funcSort(list_elem):
 #     return float(list_elem[1])
 #
 #
 # file_input = open('text2.txt', 'r')
 # file_output = open('analysis.txt', 'w')
-# alphabet = 'abcdefghijklmnopqrstuvwxyz'
 #
 # text = file_input.read()
 #
-# all_letters_list = [i_sym.lower() for i_sym in text if i_sym.lower() in alphabet]   # Список всех букв в тексте
+# all_letters_list = [i_sym.lower() for i_sym in text if i_sym.lower() in string.ascii_lowercase]   # Список всех букв в тексте
 # print(all_letters_list, '- cписок всех букв в тексте')
 #
 # sorted_unique_letters_list = sorted(set(all_letters_list))    # Отсортированный по алфавиту список уникальных букв
@@ -508,11 +509,10 @@ text = file_input.read()
 
 letters_dict = {}
 for i_letter in text:   # Заполняем новый словарь буквами и их частотой в тексте
-    if i_letter in alphabet or i_letter in alphabet.upper():
-        if i_letter in letters_dict:
-            letters_dict[i_letter] += 1
-        else:
-            letters_dict[i_letter] = 1
+    if i_letter in alphabet or i_letter in alphabet.upper():    # а можно просто: if i_letter.isalpha():
+        if i_letter not in letters_dict:
+            letters_dict[i_letter] = 0
+        letters_dict[i_letter] += 1
 
 sorted_letters_dict = {i_letter: str(letters_dict[i_letter])     # Формируем новый отсортированный по убыванию значений словарь
                        for i_letter in sorted(letters_dict, key=letters_dict.get, reverse=True)}     # Идем по списку ключей отсортированных по значениям по убыванию
