@@ -1,0 +1,4 @@
+Катя kate@mail.ru 20
+Саша kate@mail.ru 18
+Маша maria@mailru 23
+Василий vasia@mailru 35

@@ -212,12 +212,14 @@ testiruyem
 #             if flag == 'да':
 #                 file = open(file_path, 'w', encoding='utf-8')
 #                 file.write(text)
+#                 file.close()
 #                 return 'Файл успешно перезаписан!'
 #             else:
 #                 return 'Файл с таким именем уже существует. Вы выбрали оставить старый вариант.'
 #         else:
 #             file = open(file_path, 'w', encoding='utf-8')
 #             file.write(text)
+#             file.close()
 #             return 'Файл успешно сохранён!'
 #     else:
 #         return 'Указанный из папок путь - не существует'
@@ -494,7 +496,7 @@ zf.extractall()
 zf.close()
 
 extracted_file = open('voina-i-mir.txt', 'r')   # Т.к. файл имеет кодировку отличную от UTF-8 (а именно ANSI),
-text = extracted_file.read()                    # мы его считываем
+text = extracted_file.read()                    # мы его считываем с параметрами по умолчанию
 decoded_file = open('voina-i-mir.txt', 'w', encoding='utf-8')
 decoded_file.write(text)                        # и перезаписываем этот файл с кодировкой UTF-8
 extracted_file.close()
