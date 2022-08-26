@@ -29,9 +29,3 @@ while True:
                 name=user_name, message=new_message))
     else:
         print('Неизвестная команда\n')
-
-
-
-
-
-
